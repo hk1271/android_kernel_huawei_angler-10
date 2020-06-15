@@ -79,10 +79,6 @@ config CFQ_GROUP_IOSCHED
 	---help---
 	  Enable group IO scheduling in CFQ.
 
-config IOSCHED_MAPLE
-	tristate "Maple I/O scheduler"
-	default y
-
 config IOSCHED_SIOPLUS
 	tristate "Simple I/O scheduler plus"
 	default y
@@ -125,9 +121,6 @@ choice
 	config DEFAULT_FIOPS
 		bool "FIOPS" if IOSCHED_FIOPS=y
 
-	config DEFAULT_MAPLE
-		bool "Maple" if IOSCHED_MAPLE=y
-
 	config DEFAULT_SIOPLUS
 		bool "SIOPLUS" if IOSCHED_SIOPLUS=y
 
@@ -141,7 +134,6 @@ config DEFAULT_IOSCHED
 	default "noop" if DEFAULT_NOOP
 	default "fiops" if DEFAULT_FIOPS
 	default "sio" if DEFAULT_SIO
-	default "maple" if DEFAULT_MAPLE
 	default "sioplus" if DEFAULT_SIOPLUS
 
 endmenu
